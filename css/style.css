@@ -17,35 +17,65 @@ body {
   color: var(--text);
 }
 
-header {
-  padding: 28px 16px;
-  text-align: center;
+/* ===== HEADER ===== */
+.top-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #0b0f1a;
   border-bottom: 1px solid #1f2937;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
 }
 
-header h1 {
+.brand h1 {
   margin: 0;
   color: var(--gold);
-  letter-spacing: 1px;
+  font-size: 20px;
 }
 
-header p {
-  margin-top: 6px;
+.brand span {
+  font-size: 12px;
   color: var(--muted);
 }
 
-.lang-switch {
-  margin-top: 14px;
+/* ===== NAV ===== */
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
+.nav-links a {
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #121826;
+  color: var(--text);
+  border: 1px solid #1f2937;
+  transition: all 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: var(--gold);
+  color: #000;
+  font-weight: 600;
+}
+
+/* ===== LANGUAGE SWITCH ===== */
 .lang-switch button {
-  background: none;
+  background: transparent;
   border: 1px solid var(--gold);
   color: var(--gold);
-  padding: 6px 14px;
-  margin: 0 5px;
+  padding: 6px 10px;
   border-radius: 6px;
   cursor: pointer;
+  font-size: 13px;
 }
 
 .lang-switch button.active {
@@ -53,9 +83,10 @@ header p {
   color: #000;
 }
 
+/* ===== CONTENT ===== */
 main {
   max-width: 900px;
-  margin: 30px auto;
+  margin: 24px auto;
   padding: 0 16px;
 }
 
@@ -83,9 +114,28 @@ li {
   margin-bottom: 6px;
 }
 
+a {
+  color: var(--gold);
+}
+
+/* ===== FOOTER ===== */
 footer {
   text-align: center;
   padding: 20px;
   color: var(--muted);
   font-size: 14px;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .top-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nav-links {
+    width: 100%;
+    overflow-x: auto;
+  }
 }
