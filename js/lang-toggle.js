@@ -10,4 +10,21 @@ function setLang(lang) {
   document.getElementById(lang).classList.add("active");
 }
 
-window.onload = () => setLang("en");
+/* Auto highlight current page */
+function setActiveNav() {
+  const currentPage = window.location.pathname.split("/").pop();
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    const linkPage = link.getAttribute("href");
+    if (
+      linkPage === currentPage ||
+      (currentPage === "" && linkPage === "index.html")
+    ) {
+      link.classList.add("active");
+    }
+  });
+}
+
+window.onload = () => {
+  setLang("en");
+  setActiveNav();
+};
